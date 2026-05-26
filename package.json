@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "ts-node-dev --ignore-watch node_modules src/server.ts"
+    "docker:up": "docker compose up -d",
+    "docker:down": "docker compose down",
+    "dev:server": "dotenv -e .env.development -- ts-node-dev --ignore-watch node_modules src/server.ts",
+    "dev": "npm run docker:up && npm run dev:server"
   },
   "author": "",
   "license": "MIT",
@@ -13,6 +16,7 @@
     "class-transformer": "^0.5.1",
     "cors": "^2.8.6",
     "dotenv": "^17.4.2",
+    "dotenv-cli": "^11.0.0",
     "express": "^5.2.1",
     "jsonwebtoken": "^9.0.3",
     "pg": "^8.20.0",
